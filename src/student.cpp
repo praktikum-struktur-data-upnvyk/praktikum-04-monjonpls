@@ -89,22 +89,72 @@ void tutupSemuaTab(CNode*& head) {
 
 // SOAL 1
 bool bukaHalaman(DNode*& head, DNode*& tail, int nomor) {
-    return false;
+    DNode* newode = nullptr;
+    newode->data = nomor;
+    newode->next = nullptr;
+    newode->prev = nullptr;
+    
+    if(head = nullptr){
+        head = tail = newode;
+    }else{
+    newode->next = tail;
+    tail->next =newode;
+    tail= newode;}
+    return tail;
 }
 
 // SOAL 2
 int riwayatMundur(DNode* tail, int* keluaran) {
-    return 0;
+    DNode* temp = nullptr;
+    if(tail == nullptr){
+        cout << "List masih kosong" <<endl;
+        return 1;
+    } else {
+        temp  =tail;
+        while(temp != nullptr){
+            cout << temp->data << endl;
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+    return tail->data;
 }
 
 // SOAL 3
 bool hapusHalaman(DNode*& head, DNode*& tail, int nomor) {
-    return false;
+    DNode* temp = nullptr;
+    DNode* del = nullptr;
+    temp =tail;
+    del =head;
+
+    do{
+        if(del->data == nomor){
+            if(head = tail){
+                head =tail = nullptr;
+            } else {
+                temp->next = del->next;
+                if(del == head) head = del->next;
+                if(del == tail) tail = temp;
+            }
+            delete del;
+            return 1;
+        }
+        temp = del;
+        del = del->next;
+    } while(del != head);
+    return head;
 }
 
 // SOAL 4
 bool bukaTab(CNode*& head, int nomor) {
-    return false;
+    CNode* temp = nullptr;
+    temp = head; 
+    do{
+        cout << temp->data << endl;
+        temp->next;
+    }while(temp != head);
+    cout << endl;
+    return head;
 }
 
 // =============================================================================
